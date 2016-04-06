@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>VendingMachineItemTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">VendingMachine (Apr 6, 2016 7:13:46 PM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc603.project4.vendingmachine</a> &gt; <span class="el_source">VendingMachineItemTest.java</span></div><h1>VendingMachineItemTest.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package edu.towson.cis.cosc603.project4.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author newsha
+ *
+ */
+<span class="fc" id="L16">public class VendingMachineItemTest {</span>
+
+	//declare item
+	VendingMachineItem gummyBear;
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		
+<span class="fc" id="L27">		gummyBear = new VendingMachineItem(&quot;gummy bear&quot;, 2.00);</span>
+<span class="fc" id="L28">	}</span>
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+		
+<span class="fc" id="L36">		gummyBear = null;</span>
+<span class="fc" id="L37">	}</span>
+	
+	/** tests VendingMachineItem Constructor for a price &lt; 0 */
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachineItemBelowZeroPrice() {
+		
+<span class="nc" id="L43">		VendingMachineItem belowZeroPrice = new VendingMachineItem(&quot;chips&quot;, -2.5);</span>
+<span class="nc" id="L44">	}</span>
+	
+	/** tests VendingMachineItem Constructor for empty cases */
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachineItemNoName() {
+			
+<span class="nc" id="L50">		VendingMachineItem noName = new VendingMachineItem(null, 2.5);</span>
+
+<span class="nc" id="L52">	}</span>
+	/** tests String getName() */
+	@Test
+	public void getName() {
+		
+<span class="fc" id="L57">		assertEquals(&quot;gummy bear&quot;, gummyBear.getName());</span>
+
+<span class="fc" id="L59">	}</span>
+	
+	/** tests getPrice() */
+	@Test
+	public void getPrice() {
+		
+<span class="fc" id="L65">		assertEquals(2.00, gummyBear.getPrice(), 0);</span>
+<span class="fc" id="L66">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>VendingMachine (Apr 6, 2016 7:13:46 PM)</div></body></html>
